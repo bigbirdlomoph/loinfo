@@ -1,6 +1,7 @@
 <?php
 /* @var $this yii\web\View */
 use kartik\grid\GridView;
+use yii\helpers\Html;
 
 $this->title = 'Loei Health Infomation';
 ?>
@@ -11,7 +12,7 @@ $this->title = 'Loei Health Infomation';
 <div class="site-index">
 <?php
 if (isset($dataProvider))
-   // $dev = \yii\helpers\Html::a('กัมปนาท  บุตรจันทร์','http://bigbird1983.blogspot.com',['target' => '_blank']);
+    $dev = \yii\helpers\Html::a('กัมปนาท  บุตรจันทร์ นักวิชาการคอมพิวเตอร์ สสจ.เลย','http://bigbird1983.blogspot.com',['target' => '_blank']);
 
 echo GridView::widget([
     'dataProvider' => $dataProvider,
@@ -22,7 +23,7 @@ echo GridView::widget([
         'heading'=>'<h3 class="panel-title"><i class="glyphicon glyphicon-plus"></i> GIS Loei Public Health Office</h3>',
         'before' => '',
         'type' => \kartik\grid\GridView::TYPE_SUCCESS,
-        //'after' => 'โดย' . $dev
+        'after' => 'โดย ' . $dev
     ],
     
     'columns' => [

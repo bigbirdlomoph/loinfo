@@ -32,7 +32,7 @@
                 'items' => [
                     ['label' => 'Menu Yii2', 'options' => ['class' => 'header']],
                     ['label' => 'Gii', 'icon' => 'fa fa-file-code-o', 'url' => ['/gii']],
-                    ['label' => 'ค้นหาหน่วยบริการ', 'icon' => 'fa fa-dashboard', 'url' => ['/debug']],
+                    ['label' => 'ค้นหาหน่วยบริการ', 'icon' => 'fa fa-dashboard', 'url' => ['coloei/index']],
                     ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     [
                         'label' => 'Same tools',

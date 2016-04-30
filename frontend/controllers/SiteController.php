@@ -77,6 +77,8 @@ class SiteController extends Controller
         $sql = "SELECT DISTID, DISTNAME, TAMBON, COMMUNITY, VILLAGE, 
             H_HOSPITAL, HOSPITAL, SUB_HOSPITAL, NON_NHSO, PERSON
             FROM health_info_lomoph";
+        $distid = Yii::$app->request->post('DISTID');
+        $distname = Yii::$app->request->post('DISTNAME');
     try {
         $rawData = \Yii::$app->db->createCommand($sql)->queryAll();
     } catch (\yii\db\Exception $e) {

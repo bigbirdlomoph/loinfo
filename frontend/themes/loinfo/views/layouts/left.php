@@ -15,7 +15,7 @@
         </div> -->
 
         <!-- search form -->
-        <form action="#" method="get" class="sidebar-form">
+        <!--<form action="#" method="get" class="sidebar-form">
             <div class="input-group">
                 <input type="text" name="q" class="form-control" placeholder="Search..."/>
               <span class="input-group-btn">
@@ -30,17 +30,17 @@
             [
                 'options' => ['class' => 'sidebar-menu'],
                 'items' => [
-                    ['label' => 'Menu Yii2', 'options' => ['class' => 'header']],
-                    ['label' => 'Gii', 'icon' => 'fa fa-file-code-o', 'url' => ['/gii']],
-                    ['label' => 'ค้นหาหน่วยบริการ', 'icon' => 'fa fa-dashboard', 'url' => ['coloei/index']],
-                    ['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
+                    ['label' => 'เมนู', 'options' => ['class' => 'header']],
+                    //['label' => 'Gii', 'icon' => 'fa fa-file-code-o', 'url' => ['/gii']],
+                    ['label' => 'ค้นหาหน่วยบริการ', 'icon' => 'fa fa-search', 'url' => ['coloei/index']],
+                    //['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     [
                         'label' => 'Same tools',
                         'icon' => 'fa fa-share',
                         'url' => '#',
                         'items' => [
                             ['label' => 'Gii', 'icon' => 'fa fa-file-code-o', 'url' => ['/gii'],],
-                            ['label' => 'Debug', 'icon' => 'fa fa-dashboard', 'url' => ['/debug'],],
+                            ['label' => 'ติดต่อเรา', 'icon' => 'fa fa-dashboard', 'url' => ['/debug'],],
                             [
                                 'label' => 'Level One',
                                 'icon' => 'fa fa-circle-o',

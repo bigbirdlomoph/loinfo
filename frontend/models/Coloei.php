@@ -28,7 +28,7 @@ class Coloei extends Model
     public function rules()
     {
         return [
-            [['distname', 'subdist', 'office'], 'string', 'max' => 100]
+            [['distname', 'subdist', 'office, distid'], 'string', 'max' => 100]
         ];
     }
 

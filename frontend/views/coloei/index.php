@@ -13,7 +13,7 @@ use frontend\models\CoDistrict; //เรียกใช้งาน model CoDist
 /* @var $model frontend\models\Coloei */
 /* @var $form yii\widgets\ActiveForm */
 
-$this->title = "Yii2 Application";
+$this->title = "ค้นหาหน่วยบริการในจังหวัดเลย";
 ?>
 
     <div class="coloei-form">

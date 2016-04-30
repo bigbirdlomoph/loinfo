@@ -5,25 +5,38 @@ use yii\helpers\Html;
 
 $this->title = 'Loei Health Infomation';
 ?>
-<div class="jumbotron">
-        <h1>ยินดีต้อนรับ</h1>
-        <h2>ระบบสารสนเทศด้านสาธารณสุข จังหวัดเลย</h2>
+<div class="row">
+    <div class="col-md-6">
+        <div class="alert alert-info">
+        <h3>ยินดีต้อนรับ</h3>
+        <h3>ระบบสารสนเทศด้านสาธารณสุข จังหวัดเลย</h3>
+        </div>
+    </div>
+    <div class="col-md-6">
+        <div class="alert alert-success">
+        <h3>ยินดีต้อนรับ</h3>
+        <h3>ระบบสารสนเทศด้านสาธารณสุข จังหวัดเลย</h3>
+        </div>
+    </div>
 </div>
 <div class="site-index">
+
+
 <?php
 if (isset($dataProvider))
-    $dev = \yii\helpers\Html::a('กัมปนาท  บุตรจันทร์ นักวิชาการคอมพิวเตอร์ สสจ.เลย','http://bigbird1983.blogspot.com',['target' => '_blank']);
+    $dev = \yii\helpers\Html::a('กัมปนาท  บุตรจันทร์ นวก.คอมพิวเตอร์ สสจ.เลย','http://bigbird1983.blogspot.com',['target' => '_blank']);
 
+    $distid = Yii::$app->request->post('distid');
 echo GridView::widget([
     'dataProvider' => $dataProvider,
     'responsive' => true,
     'hover' => TRUE,
     'floatHeader' => true,
     'panel' => [
-        'heading'=>'<h3 class="panel-title"><i class="glyphicon glyphicon-plus"></i> GIS Loei Public Health Office</h3>',
-        'before' => '',
+        'heading'=>'<h3 class="panel-title"><i class="glyphicon glyphicon-plus-sign"></i> GIS Loei Public Health Office</h3>',
+        'before' => 'จำนวนประชากรคิดตาม typearea 1,3 ของ HDC เป็นประชากรโดยประมาณ',
         'type' => \kartik\grid\GridView::TYPE_SUCCESS,
-        'after' => 'โดย ' . $dev
+        'after' => 'ประมวลผล ณ ' .date('Y-m-d H:i:s') .'  โดย ' . $dev  
     ],
     
     'columns' => [
@@ -37,13 +50,17 @@ echo GridView::widget([
         
         [
             'headerOptions' => ['class' => 'text-center'],
-            'contentOptions' => ['class' => 'text-center'],
+            'contentOptions' => ['class' => 'text-left'],
             'options' => ['style' => 'width:30px;'],
             'attribute' => 'DISTNAME',
             'header' => 'อำเภอ',
+            'format' => 'raw',
             'value'=>function($model){
-            return empty($model['DISTNAME']) ? '-' : $model['DISTNAME'];
-            } 
+                $distid = $model['DISTID'];
+                $distname = $model['DISTNAME'];
+                return Html::a(Html::encode($distname),['#','DISTID'=>$distid]);
+            //return empty($model['DISTNAME']) ? '-' : $model['DISTNAME'];
+            }
         ],
         [
             'headerOptions' => ['class' => 'text-center'],

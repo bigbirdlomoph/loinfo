@@ -56,10 +56,10 @@ echo GridView::widget([
             'header' => 'อำเภอ',
             'format' => 'raw',
             'value'=>function($model){
-                $distid = $model['DISTID'];
-                $distname = $model['DISTNAME'];
-                return Html::a(Html::encode($distname),['#','DISTID'=>$distid]);
-            //return empty($model['DISTNAME']) ? '-' : $model['DISTNAME'];
+                $distid = $model['DISTID']; // ประกาศรับค่าตัวแปรจาก Controller
+                $distname = $model['DISTNAME']; // ประกาศรับค่าตัวแปรจาก Controller
+                return Html::a(Html::encode($distname),['/site/taminfo','DISTID'=>$distid]); //กำหนดว่าเราต้องการส่งค่าตัวแปร POST ไปที่หน้าไหน
+            return empty($model['DISTNAME']) ? '-' : $model['DISTNAME'];
             }
         ],
         [

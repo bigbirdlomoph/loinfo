@@ -77,8 +77,8 @@ class SiteController extends Controller
         $sql = "SELECT DISTID, DISTNAME, TAMBON, COMMUNITY, VILLAGE, 
             H_HOSPITAL, HOSPITAL, SUB_HOSPITAL, NON_NHSO, PERSON
             FROM health_info_lomoph";
-        $distid = Yii::$app->request->post('DISTID');
-        $distname = Yii::$app->request->post('DISTNAME');
+        $distid = Yii::$app->request->post('DISTID');  //ส่งค่าตัวแปร distid ในแบบ POST ไปที่หน้า Index
+        $distname = Yii::$app->request->post('DISTNAME');  //ส่งค่าตัวแปร distname ในแบบ POST  ไปที่หน้า Index 
     try {
         $rawData = \Yii::$app->db->createCommand($sql)->queryAll();
     } catch (\yii\db\Exception $e) {
@@ -92,6 +92,33 @@ class SiteController extends Controller
         'dataProvider' => $dataProvider,
         'sql' => $sql
     ]);
+    }
+    
+    //แสดงตำบลในอำเภอที่เลือก
+    public function actionTaminfo($DISTID) {
+        $sql = "SELECT 
+                d.distname, v.subdistid, s.subdistname, v.villid, COUNT(*)AS villa
+                FROM co_village_loei v
+                LEFT JOIN co_subdistrict s ON s.subdistid = v.subdistid
+                LEFT JOIN co_district d ON d.distid = v.distid
+                WHERE v.distid=$DISTID
+                GROUP BY v.subdistid";
+        $subdistid = Yii::$app->request->post('subdistid'); //ส่งค่าตัวแปร distid ในแบบ POST ไปที่หน้า taminfo
+        $subdistname = Yii::$app->request->post('subdistname');  //ส่งค่าตัวแปร distname ในแบบ POST  ไปที่หน้า taminfo 
+        try {
+        $rawData = \Yii::$app->db->createCommand($sql)->queryAll();
+    } catch (\yii\db\Exception $e) {
+        throw new \yii\web\ConflictHttpException('sql error');
+    }
+    $dataProvider = new ArrayDataProvider([
+        'allModels' => $rawData,
+        'pagination' => false
+    ]);
+    return $this->render('taminfo',[
+        'dataProvider' => $dataProvider,
+        'sql' => $sql
+    ]);
+    
     }
 
     /**

@@ -103,8 +103,8 @@ class SiteController extends Controller
                 LEFT JOIN co_district d ON d.distid = v.distid
                 WHERE v.distid=$DISTID
                 GROUP BY v.subdistid";
-        $subdistid = Yii::$app->request->post('subdistid'); //ส่งค่าตัวแปร distid ในแบบ POST ไปที่หน้า taminfo
-        $subdistname = Yii::$app->request->post('subdistname');  //ส่งค่าตัวแปร distname ในแบบ POST  ไปที่หน้า taminfo 
+            $subdistid = Yii::$app->request->post('subdistid'); //ส่งค่าตัวแปร distid ในแบบ POST ไปที่หน้า taminfo
+            $subdistname = Yii::$app->request->post('subdistname');  //ส่งค่าตัวแปร distname ในแบบ POST  ไปที่หน้า taminfo 
         try {
         $rawData = \Yii::$app->db->createCommand($sql)->queryAll();
     } catch (\yii\db\Exception $e) {
@@ -115,6 +115,34 @@ class SiteController extends Controller
         'pagination' => false
     ]);
     return $this->render('taminfo',[
+        'dataProvider' => $dataProvider,
+        'sql' => $sql
+    ]);
+    
+    }
+    
+    //แสดงหมู่บ้านในตำบลที่เลือก
+    public function actionVillinfo($subdistid) {
+        $sql = "SELECT v.subdistid, s.subdistname, v.villid,
+                IF(v.villno=0,CONCAT('ชุมชน ',' ',':',' ', v.villname),
+                CONCAT('หมู่ที่ ',' ',v.villno,' ',':',' ', v.villname))AS villagename
+                FROM co_village_loei v
+                LEFT JOIN co_subdistrict s ON s.subdistid = v.subdistid
+                LEFT JOIN co_district d ON d.distid = v.distid
+                WHERE v.subdistid=$subdistid
+                GROUP BY v.villid";
+        //$subdistid = Yii::$app->request->post('subdistid'); //ส่งค่าตัวแปร distid ในแบบ POST ไปที่หน้า taminfo
+        //$subdistname = Yii::$app->request->post('subdistname');  //ส่งค่าตัวแปร distname ในแบบ POST  ไปที่หน้า taminfo 
+        try {
+        $rawData = \Yii::$app->db->createCommand($sql)->queryAll();
+    } catch (\yii\db\Exception $e) {
+        throw new \yii\web\ConflictHttpException('sql error');
+    }
+    $dataProvider = new ArrayDataProvider([
+        'allModels' => $rawData,
+        'pagination' => false
+    ]);
+    return $this->render('villinfo',[
         'dataProvider' => $dataProvider,
         'sql' => $sql
     ]);

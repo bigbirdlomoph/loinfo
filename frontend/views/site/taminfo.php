@@ -19,6 +19,7 @@ $this->title = 'Loei Health Infomation';
         //$subdistname = Yii::$app->request->post('subdistname');
         echo GridView::widget([
             'dataProvider' => $dataProvider,
+            //'showPageSummary' => true, //แสดงแถบ Summary ท้าย Row
             'responsive' => true,
             'hover' => TRUE,
             'floatHeader' => true,
@@ -36,22 +37,6 @@ $this->title = 'Loei Health Infomation';
                     'class' => 'yii\grid\SerialColumn',
                     'header' => 'ลำดับที่'
                 ],
-                /*
-                  [
-                  'headerOptions' => ['class' => 'text-center'],
-                  'contentOptions' => ['class' => 'text-left'],
-                  'options' => ['style' => 'width:30px;'],
-                  'attribute' => 'subdistname',
-                  'header' => 'อำเภอ',
-                  'format' => 'raw',
-                  'value'=>function($model){
-                  $distid = $model['DISTID']; // ประกาศรับค่าตัวแปรจาก Controller
-                  $distname = $model['DISTNAME']; // ประกาศรับค่าตัวแปรจาก Controller
-                  return Html::a(Html::encode($distname),['/coloei/taminfo','DISTID'=>$distid]); //กำหนดว่าเราต้องการส่งค่าตัวแปร POST ไปที่หน้าไหน
-                  //return empty($model['DISTNAME']) ? '-' : $model['DISTNAME'];
-                  }
-                  ],
-                 */
                 [
                     'headerOptions' => ['class' => 'text-center'],
                     'contentOptions' => ['class' => 'text-left'],
@@ -73,9 +58,13 @@ $this->title = 'Loei Health Infomation';
                     //'options' => ['style' => 'width:30px;'],
                     'options' => ['width' => '50'],
                     'attribute' => 'villa',
+                    //'format' =>['decimal', 0],
+                    //'pageSummary' => TRUE,
+                    //'pageSummaryOptions' => ['class' => 'text-center text-info'],
                     'header' => 'หมู่บ้าน',
                     'value' => function($model) {
-                return empty($model['villa']) ? '-' : $model['villa'];
+                    return empty($model['villa']) ? '-' : $model['villa'];
+                    
             }
                 ],
             ]

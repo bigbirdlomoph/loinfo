@@ -61,10 +61,10 @@ $this->title = 'Loei Health Infomation';
                     'header' => 'ตำบล',
                     'format' => 'raw',
                     'value' => function($model) {
-                $subdistid = $model['subdistid']; // ประกาศรับค่าตัวแปรจาก Controller
-                $subdistname = $model['subdistname']; // ประกาศรับค่าตัวแปรจาก Controller
-                return Html::a(Html::encode($subdistname), ['/site/villinfo', 'subdistid' => $subdistid]);
-                return empty($model['subdistname']) ? '-' : $model['subdistname'];
+                    $subdistid = $model['subdistid']; // ประกาศรับค่าตัวแปรจาก Controller
+                    $subdistname = $model['subdistname']; // ประกาศรับค่าตัวแปรจาก Controller
+                    return Html::a(Html::encode($subdistname), ['/site/villinfo', 'subdistid' => $subdistid]);
+                    return empty($model['subdistname']) ? '-' : $model['subdistname'];
             }
                 ],
                 [

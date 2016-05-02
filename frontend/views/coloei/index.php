@@ -66,8 +66,13 @@ $this->title = "ค้นหาหน่วยบริการในจัง�
 
     </div>
 
-<?php if (isset($dataProvider)) { ?>
+<?php if (isset($dataProvider)) { 
+    
+    $subdistid = Yii::$app->request->post('subdistid');
+    
+    ?>
 
+ 
     <div class="panel panel-default">
         <div class="panel-body">
             <?php
@@ -85,13 +90,33 @@ $this->title = "ค้นหาหน่วยบริการในจัง�
                     //],
                     'columns' => [
                         [
+                            'headerOptions' => ['class' => 'text-center'],
+                            'contentOptions' => ['class' => 'text-center'],
                             'attribute' => 'CODE',
                             'header' => 'รหัส.',
                             'headerOptions' => ['width' => '100']
                         ],
+                        
                         [
+                            'headerOptions' => ['class' => 'text-center'],
+                            'contentOptions' => ['class' => 'text-left'],
                             'attribute' => 'NAME',
                             'header' => 'ชื่อสถานบริการ / หมู่บ้าน',
+                            //'headerOptions' => ['width' => '300']
+                            'format' => 'raw',
+                            'value' => function($model) {
+                            $subdistid = $model['subdistid']; // ประกาศรับค่าตัวแปรจาก Controller
+                            $off_name = $model['NAME']; // ประกาศรับค่าตัวแปรจาก Controller
+                            return Html::a(Html::encode($off_name), ['/site/villinfo', 'subdistid' => $subdistid]);
+                            return empty($model['NAME']) ? '-' : $model['NAME'];
+                            }
+                        ],
+                        
+                        [
+                            'headerOptions' => ['class' => 'text-center'],
+                            'contentOptions' => ['class' => 'text-center'],
+                            'attribute' => 'VILLID',
+                            'header' => 'จำนวนหมู่บ้านรับผิดชอบของสถานบริการ',
                             //'headerOptions' => ['width' => '300']
                         ]
                     ],

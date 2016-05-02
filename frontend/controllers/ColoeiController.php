@@ -65,7 +65,9 @@ class ColoeiController extends Controller
                     'office' => $office_id
                 ]);
             }else{
-                $sql = "SELECT off_id AS CODE, off_name AS NAME FROM co_office WHERE distid = '$dist_id'";
+                $sql = "SELECT off_id AS CODE, off_name AS NAME
+                        FROM co_office 
+                        WHERE distid = '$dist_id'";
 
                 try {
                     $rawData = \Yii::$app->db->createCommand($sql)->queryAll();

@@ -33,6 +33,7 @@
                     ['label' => 'เมนู', 'options' => ['class' => 'header']],
                     //['label' => 'Gii', 'icon' => 'fa fa-file-code-o', 'url' => ['/gii']],
                     ['label' => 'ค้นหาหน่วยบริการ', 'icon' => 'fa fa-search', 'url' => ['coloei/index']],
+                    ['label' => 'แผนที่ประชากร', 'icon' => 'fa fa-search', 'url' => ['map/geo']],
                     //['label' => 'Login', 'url' => ['site/login'], 'visible' => Yii::$app->user->isGuest],
                     [
                         'label' => 'Same tools',

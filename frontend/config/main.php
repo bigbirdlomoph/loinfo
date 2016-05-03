@@ -42,7 +42,11 @@ return [
                     '@app/views' => '@frontend/themes/loinfo/views' 
                     ] 
                 ] 
-            ]
+            ],
+        'image' => [
+                'class' => 'yii\image\ImageDriver',
+                'driver' => 'GD',  //GD or Imagick
+                ],
         
     ],
     'modules' => [

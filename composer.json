@@ -23,7 +23,9 @@
         "kartik-v/yii2-export": "*",
         "dmstr/yii2-adminlte-asset": "2.*",
         "kartik-v/yii2-widgets": "*",
-        "fedemotta/yii2-widget-datatables": "*"
+        "fedemotta/yii2-widget-datatables": "*",
+        "yiisoft/yii2-imagine": "~2.0.0",
+        "yurkinx/yii2-image": "dev-master"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

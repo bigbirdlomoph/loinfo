@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "e4b1ce6b9e9b589b01645a73ded4b20d",
-    "content-hash": "160b1ace2fd8882dadee91c6455897f8",
+    "hash": "69866292f4d605939c6c1ac54cbc8a36",
+    "content-hash": "457270be85c6f4efa096c886e27f4ef5",
     "packages": [
         {
             "name": "almasaeed2010/adminlte",
@@ -618,6 +618,58 @@
             "time": "2015-06-08 16:07:23"
         },
         {
+            "name": "imagine/imagine",
+            "version": "v0.5.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/avalanche123/Imagine.git",
+                "reference": "f64ec666baaa800edcbf237db41121a569230709"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/avalanche123/Imagine/zipball/f64ec666baaa800edcbf237db41121a569230709",
+                "reference": "f64ec666baaa800edcbf237db41121a569230709",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.2"
+            },
+            "require-dev": {
+                "sami/sami": "dev-master"
+            },
+            "suggest": {
+                "ext-gd": "to use the GD implementation",
+                "ext-gmagick": "to use the Gmagick implementation",
+                "ext-imagick": "to use the Imagick implementation"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "Imagine": "lib/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Bulat Shakirzyanov",
+                    "email": "mallluhuct@gmail.com",
+                    "homepage": "http://avalanche123.com"
+                }
+            ],
+            "description": "Image processing for PHP 5.3",
+            "homepage": "http://imagine.readthedocs.org/",
+            "keywords": [
+                "drawing",
+                "graphics",
+                "image manipulation",
+                "image processing"
+            ],
+            "time": "2013-07-10 17:25:36"
+        },
+        {
             "name": "kartik-v/bootstrap-fileinput",
             "version": "v4.3.1",
             "source": {
@@ -821,12 +873,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartik-v/yii2-grid.git",
-                "reference": "28a762ba2fb2dec1c36c1a29fe3d0cd71e71a37c"
+                "reference": "0473f04f1af0f8c93c3270c658db9602e97f5f9e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartik-v/yii2-grid/zipball/28a762ba2fb2dec1c36c1a29fe3d0cd71e71a37c",
-                "reference": "28a762ba2fb2dec1c36c1a29fe3d0cd71e71a37c",
+                "url": "https://api.github.com/repos/kartik-v/yii2-grid/zipball/0473f04f1af0f8c93c3270c658db9602e97f5f9e",
+                "reference": "0473f04f1af0f8c93c3270c658db9602e97f5f9e",
                 "shasum": ""
             },
             "require": {
@@ -862,7 +914,7 @@
                 "widget",
                 "yii2"
             ],
-            "time": "2016-04-28 12:27:02"
+            "time": "2016-05-01 18:38:26"
         },
         {
             "name": "kartik-v/yii2-krajee-base",
@@ -2143,16 +2195,16 @@
         },
         {
             "name": "swiftmailer/swiftmailer",
-            "version": "v5.4.1",
+            "version": "v5.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/swiftmailer/swiftmailer.git",
-                "reference": "0697e6aa65c83edf97bb0f23d8763f94e3f11421"
+                "reference": "d8db871a54619458a805229a057ea2af33c753e8"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/0697e6aa65c83edf97bb0f23d8763f94e3f11421",
-                "reference": "0697e6aa65c83edf97bb0f23d8763f94e3f11421",
+                "url": "https://api.github.com/repos/swiftmailer/swiftmailer/zipball/d8db871a54619458a805229a057ea2af33c753e8",
+                "reference": "d8db871a54619458a805229a057ea2af33c753e8",
                 "shasum": ""
             },
             "require": {
@@ -2192,7 +2244,7 @@
                 "mail",
                 "mailer"
             ],
-            "time": "2015-06-06 14:19:39"
+            "time": "2016-05-01 08:45:47"
         },
         {
             "name": "yiisoft/yii2",
@@ -2386,6 +2438,54 @@
             "time": "2016-02-06 00:49:24"
         },
         {
+            "name": "yiisoft/yii2-imagine",
+            "version": "2.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yiisoft/yii2-imagine.git",
+                "reference": "0961343138b65bba447de84b2b300899617e6acc"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yiisoft/yii2-imagine/zipball/0961343138b65bba447de84b2b300899617e6acc",
+                "reference": "0961343138b65bba447de84b2b300899617e6acc",
+                "shasum": ""
+            },
+            "require": {
+                "imagine/imagine": "0.5.*",
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "yii\\imagine\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Antonio Ramirez",
+                    "email": "amigo.cobos@gmail.com"
+                }
+            ],
+            "description": "The Imagine integration for the Yii framework",
+            "keywords": [
+                "helper",
+                "image",
+                "imagine",
+                "yii2"
+            ],
+            "time": "2015-03-01 06:22:44"
+        },
+        {
             "name": "yiisoft/yii2-swiftmailer",
             "version": "2.0.5",
             "source": {
@@ -2434,6 +2534,49 @@
                 "yii2"
             ],
             "time": "2016-03-17 03:58:49"
+        },
+        {
+            "name": "yurkinx/yii2-image",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/yurkinx/yii2-image.git",
+                "reference": "0d6d261bf9c2dc35e9ad8c5cc56793580b74eefd"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/yurkinx/yii2-image/zipball/0d6d261bf9c2dc35e9ad8c5cc56793580b74eefd",
+                "reference": "0d6d261bf9c2dc35e9ad8c5cc56793580b74eefd",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.4.0",
+                "yiisoft/yii2": "*"
+            },
+            "type": "yii2-extension",
+            "autoload": {
+                "psr-0": {
+                    "yii\\image\\": ""
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "BSD-3-Clause"
+            ],
+            "authors": [
+                {
+                    "name": "Yuri Kileev",
+                    "email": "kileev@gmail.com"
+                }
+            ],
+            "description": "Yii2 extension for image manipulating using Kohana Image Library.",
+            "homepage": "https://github.com/yurkinx/yii2-image",
+            "keywords": [
+                "extension",
+                "image",
+                "yii2"
+            ],
+            "time": "2015-06-24 13:41:22"
         }
     ],
     "packages-dev": [
@@ -2747,7 +2890,8 @@
     "minimum-stability": "stable",
     "stability-flags": {
         "kartik-v/yii2-grid": 20,
-        "kartik-v/yii2-mpdf": 20
+        "kartik-v/yii2-mpdf": 20,
+        "yurkinx/yii2-image": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

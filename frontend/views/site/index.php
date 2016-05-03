@@ -2,23 +2,29 @@
 /* @var $this yii\web\View */
 use kartik\grid\GridView;
 use yii\helpers\Html;
+use yii\imagine\Image;
 
 $this->title = 'Loei Health Infomation';
 ?>
 <div class="row">
     <div class="col-md-6">
-        <div class="alert alert-info">
-        <h3>ยินดีต้อนรับ</h3>
-        <h3>ระบบสารสนเทศด้านสาธารณสุข จังหวัดเลย</h3>
+        <div class="alert alert-success">
+            <div class="img-thumbnail">
+            <?php 
+                echo Html::img('@web/img/logo_MOPH150.png');
+            ?>
+            </div>
         </div>
     </div>
     <div class="col-md-6">
         <div class="alert alert-success">
-        <h3>ยินดีต้อนรับ</h3>
+        <h1>ยินดีต้อนรับ</h1>
         <h3>ระบบสารสนเทศด้านสาธารณสุข จังหวัดเลย</h3>
+        <h3>สำนักงานสาธารณสุขจังหวัดเลย</h3>
         </div>
     </div>
 </div>
+
 <div class="site-index">
 
 
@@ -153,35 +159,41 @@ echo GridView::widget([
     <div class="body-content">
 
         <div class="row">
-            <div class="col-lg-4">
-                <h2>Heading</h2>
+            <div class="col-lg-3">
+                <h3>ประชากร TYPEAREA 1</h3>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
+                <p> เป็นบุคคลที่มีชื่ออยู่ตามทะเบียนบ้าน ในเขตรับผิดชอบ และอยู่จริง.</br>
+                    หมายเหตุ เขตรับผิดชอบหมายถึง เขตรับผิดชอบของตำบลที่ตั้งของ โรงพยาบาล หรือ โรงพยาบาลส่งเสริมสุขภาพประจำตำบล
+                </p>
 
-                <p><a class="btn btn-success" href="http://www.yiiframework.com/doc/">Yii Documentation &raquo;</a></p>
+                <p><a class="btn btn-success" href="#">อ่านต่อ &raquo;</a></p>
             </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
+            <div class="col-lg-3">
+                <h3>ประชากร TYPEAREA 2</h3>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
+                <p> เป็นบุคคลที่มีชื่ออยู่ตามทะเบีบนบ้าน ในเขตรับผิดชอบ แต่ตัวไม่อยู่จริง. </br>
+                    หมายเหตุ เขตรับผิดชอบหมายถึง เขตรับผิดชอบของตำบลที่ตั้งของ โรงพยาบาล หรือ โรงพยาบาลส่งเสริมสุขภาพประจำตำบล
+                </p>
 
-                <p><a class="btn btn-primary" href="http://www.yiiframework.com/forum/">Yii Forum &raquo;</a></p>
+                <p><a class="btn btn-primary" href="#">อ่านต่อ &raquo;</a></p>
             </div>
-            <div class="col-lg-4">
-                <h2>Heading</h2>
+            <div class="col-lg-3">
+                <h3>ประชากร TYPEAREA 3</h3>
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                    dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                    ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu
-                    fugiat nulla pariatur.</p>
+                <p> เป็นบุคคลที่มาอาศัยอยู่ในเขตรับผิดชอบ(ตามทะเบียนบ้านในเขตรับผิดชอบ)แต่ทะเบียนบ้าน อยู่นอกเขตรับผิดชอบ. </br>
+                    หมายเหตุ เขตรับผิดชอบหมายถึง เขตรับผิดชอบของตำบลที่ตั้งของ โรงพยาบาล หรือ โรงพยาบาลส่งเสริมสุขภาพประจำตำบล
+                </p>
 
-                <p><a class="btn btn-info" href="http://www.yiiframework.com/extensions/">Yii Extensions &raquo;</a></p>
+                <p><a class="btn btn-info" href="#">อ่านต่อ &raquo;</a></p>
+            </div>
+            <div class="col-lg-3">
+                <h3>ประชากร TYPEAREA 4</h3>
+
+                <p> ที่อาศัยอยู่นอกเขตรับผิดชอบและทะเบียนบ้านไม่อยู่ในเขตรับผิดชอบ เข้ามารับบริการหรือเคยอยู่ในเขตรับผิดชอบ. </br>
+                    หมายเหตุ เขตรับผิดชอบหมายถึง เขตรับผิดชอบของตำบลที่ตั้งของ โรงพยาบาล หรือ โรงพยาบาลส่งเสริมสุขภาพประจำตำบล
+                </p>
+
+                <p><a class="btn btn-info" href="#">อ่านต่อ &raquo;</a></p>
             </div>
         </div>
 

@@ -40,6 +40,7 @@
                         'url' => '#',
                         'items' => [
                             ['label' => 'Gii', 'icon' => 'fa fa-file-code-o', 'url' => ['/gii'],],
+                            ['label' => 'HDC', 'icon' => 'fa fa-dashboard', 'url' => ['http://lei.hdc.moph.go.th/'],],
                             ['label' => 'ติดต่อเรา', 'icon' => 'fa fa-dashboard', 'url' => ['/debug'],],
                             [
                                 'label' => 'Level One',

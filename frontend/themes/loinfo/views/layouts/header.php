@@ -21,14 +21,14 @@ use yii\helpers\Html;
             <ul class="nav navbar-nav">
                 <!-- User Account: style can be found in dropdown.less -->
 
-                <li class="dropdown user user-menu">
+                <!--<li class="dropdown user user-menu">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <img src="<?= $directoryAsset ?>/img/user2-160x160.jpg" class="user-image" alt="User Image"/>
                         <span class="hidden-xs">Alexander Pierce</span>
                     </a>
                     <ul class="dropdown-menu">
                         <!-- User image -->
-                        <li class="user-header">
+                        <!--<<li class="user-header">
                             <img src="<?= $directoryAsset ?>/img/user2-160x160.jpg" class="img-circle"
                                  alt="User Image"/>
 
@@ -38,7 +38,7 @@ use yii\helpers\Html;
                             </p>
                         </li>
                         <!-- Menu Body -->
-                        <li class="user-body">
+                        <!--<<li class="user-body">
                             <div class="col-xs-4 text-center">
                                 <a href="#">Followers</a>
                             </div>
@@ -50,7 +50,7 @@ use yii\helpers\Html;
                             </div>
                         </li>
                         <!-- Menu Footer-->
-                        <li class="user-footer">
+                        <!--<<li class="user-footer">
                             <div class="pull-left">
                                 <a href="#" class="btn btn-default btn-flat">Profile</a>
                             </div>
@@ -59,7 +59,7 @@ use yii\helpers\Html;
                                     'Sign out',
                                     ['/site/logout'],
                                     ['data-method' => 'post', 'class' => 'btn btn-default btn-flat']
-                                ) ?>
+                                ) ?> 
                             </div>
                         </li>
                     </ul>

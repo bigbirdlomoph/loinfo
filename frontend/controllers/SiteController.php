@@ -88,9 +88,12 @@ class SiteController extends Controller
         'allModels' => $rawData,
         'pagination' => false
     ]);
+    $grapPerson = $this->GraphPerson();
+
     return $this->render('index',[
         'dataProvider' => $dataProvider,
-        'sql' => $sql
+        'sql' => $sql,
+        'main_level' => $grapPerson[0]
     ]);
     }
     
@@ -148,7 +151,26 @@ class SiteController extends Controller
     ]);
     
     }
+    
+    public function GraphPerson(){ 
+        $sql_level = "SELECT h.DISTNAME, h.PERSON FROM health_info_lomoph h limit 14"; 
+        
+        $rawData_level = Yii::$app->db->createCommand($sql_level)->queryAll();
+        
+        $main_data_level =[];
+        foreach ($rawData_level as $data_level) {
+            $main_data_level[] =[
+                'name' => $data_level['DISTNAME'],
+                'y' => $data_level['PERSON']* 1,
 
+            ];
+        }
+        $main_level = json_encode($main_data_level);
+
+        return [$main_level,$main_data_level];
+    }
+
+    
     /**
      * Logs in a user.
      *
@@ -285,4 +307,6 @@ class SiteController extends Controller
         ]);
     }
     
+    
+   
 }

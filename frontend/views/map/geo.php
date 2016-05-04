@@ -19,10 +19,12 @@ use yii\grid\GridView;
 
         var options = {
             region: 'TH'
-            resolution: 'DISTNAME',
-            //displayMode: 'markers', 
-            colorAxis: {colors: ['white', 'yellow', 'orange', 'red']}
+            resolution: 'LOEI',
+            displayMode: 'markers', 
+            //colorAxis: {colors: ['white', 'yellow', 'orange', 'red']}
+            colorAxis: {colors: ['white', 'yellow', 'green']}
         };
+        //var options = {displayMode: 'auto'};
 
         var chart = new google.visualization.GeoChart(document.getElementById('regions_div'));
         chart.draw(data, options);

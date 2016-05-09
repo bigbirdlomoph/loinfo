@@ -153,8 +153,8 @@ class SiteController extends Controller
     }
     
     public function GraphPerson(){ 
-        $sql_level = "SELECT h.DISTNAME, h.PERSON FROM health_info_lomoph h limit 14"; 
-        
+        $sql_level = "SELECT h.DISTNAME, h.PERSON FROM health_info_lomoph h LIMIT 14"; 
+        //เก็บผลการ query
         $rawData_level = Yii::$app->db->createCommand($sql_level)->queryAll();
         
         $main_data_level =[];
@@ -162,6 +162,7 @@ class SiteController extends Controller
             $main_data_level[] =[
                 'name' => $data_level['DISTNAME'],
                 'y' => $data_level['PERSON']* 1,
+                'z' => $data_level['PERSON'],
 
             ];
         }

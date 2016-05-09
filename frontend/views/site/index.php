@@ -6,11 +6,11 @@ use yii\imagine\Image;
 
 use miloschuman\highcharts\Highcharts;
 
-$this->title = 'Loei Health Infomation';
+$this->title = 'สานสนเทศด้านสาธารณสุขจังหวัดเลย';
 $this->params['breadcrumbs'][] = ''; 
 
 ?>
-<div class="row">
+<!--<div class="row">
     <div class="col-md-6">
         <div class="alert alert-success">
             <div class="img-thumbnail">
@@ -27,7 +27,7 @@ $this->params['breadcrumbs'][] = '';
         <h3>สำนักงานสาธารณสุขจังหวัดเลย</h3>
         </div>
     </div>
-</div>
+</div>-->
 
 <div class="site-index">
 
@@ -43,10 +43,10 @@ echo GridView::widget([
     'hover' => TRUE,
     'floatHeader' => true,
     'panel' => [
-        'heading'=>'<h3 class="panel-title"><i class="glyphicon glyphicon-plus-sign"></i> GIS Loei Public Health Office</h3>',
+        'heading'=>'<h3 class="panel-title"><i class="glyphicon glyphicon-plus-sign"></i> Loei Public Health Office</h3>',
         'before' => 'จำนวนประชากรคิดตาม typearea 1,3 ของ HDC เป็นประชากรโดยประมาณ',
         'type' => \kartik\grid\GridView::TYPE_SUCCESS,
-        'after' => 'ประมวลผล ณ ' .date('Y-m-d H:i:s') .'  โดย ' . $dev  
+        'after' => 'ประมวลผล ณ ' .date('Y-m-d H:i:s')   
     ],
     
     'columns' => [
@@ -188,6 +188,7 @@ echo GridView::widget([
                                             enabled: true,
                                             alpha: 10,
                                             beta: 15,
+                                            viewDistance: 25,
                                             depth: 70
                                             }
                                         },
@@ -223,6 +224,7 @@ echo GridView::widget([
                                         plotOptions: {
                                             series: {
                                                 borderWidth: 0,
+                                                depth : 40,
                                                 dataLabels: {
                                                     enabled: true
                                                 }
@@ -237,7 +239,6 @@ echo GridView::widget([
                                                 ],
                                     });
                                 });");
-                    
             ?>   
         </div>
     </div>

@@ -78,7 +78,7 @@ $this->title = "ค้นหาหน่วยบริการในจัง�
             if (isset($dataProvider))
                 echo DataTables::widget([
                     'dataProvider' => $dataProvider,
-                    'formatter' => ['class' => 'yii\i18n\Formatter', 'nullDisplay' => '0'],
+                    //'formatter' => ['class' => 'yii\i18n\Formatter', 'nullDisplay' => '0'],
                     //'dataProvider' => $dataProvider,
                     //'responsive' => TRUE,
                     //'hover' => true,

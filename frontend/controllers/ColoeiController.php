@@ -44,14 +44,26 @@ class ColoeiController extends Controller
 
             if ($office_id != null) {
 
-                $sql = "SELECT villid AS CODE, villname AS NAME
-                        FROM co_village_loei 
-                        WHERE distid = '$dist_id' AND subdistid ='$subdist_id'";
+                //$sql = "SELECT villid AS CODE, villname AS NAME
+                //        FROM co_village_loei 
+                //        WHERE distid = '$dist_id' AND subdistid ='$subdist_id'";
+                
+                $sql = "SELECT o.off_id AS CODE, o.off_name AS NAME, o.subdistid, 
+                        COUNT(DISTINCT v.villid)AS VILLID, 
+                        GROUP_CONCAT(v.villname)AS VILLNAME
+                        FROM co_office o
+                        LEFT JOIN co_village_loei v ON v.subdistid = o.subdistid 
+                        AND v.subdistid = o.subdistid
+                        AND v.hospcode = o.off_id 
+                        WHERE o.distid = '$dist_id' AND o.off_type NOT IN(00,10,12,20) 
+                        GROUP BY o.off_id
+                        ORDER BY o.off_id";
                 try {
                     $rawData = \Yii::$app->db->createCommand($sql)->queryAll();
-                } catch (\yii\db\Exception $e) {
+                    } 
+                    catch (\yii\db\Exception $e) {
                     throw new \yii\web\ConflictHttpException('sql error');
-                }
+                    }
                 $dataProvider = new \yii\data\ArrayDataProvider([
                     //'key' => 'hoscode',
                     'allModels' => $rawData,
@@ -78,7 +90,7 @@ class ColoeiController extends Controller
                         LEFT JOIN co_village_loei v ON v.subdistid = o.subdistid 
                         AND v.subdistid = o.subdistid
                         AND v.hospcode = o.off_id 
-                        WHERE (o.distid = '$dist_id' OR o.subdistid = '$subdist_id') AND o.off_type NOT IN(00,10,12,20) 
+                        WHERE o.distid = '$dist_id' AND o.subdistid = '$subdist_id' AND o.off_type NOT IN(00,10,12,20) 
                         GROUP BY o.off_id
                         ORDER BY o.off_id";
                 $subdistid = Yii::$app->request->post('subdistid'); //ส่งค่าตัวแปร distid ในแบบ POST ไปที่หน้า taminfo

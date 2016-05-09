@@ -168,7 +168,7 @@ echo GridView::widget([
                     'scripts' => [
                         'highcharts-more', // enables supplementary chart types (gauge, arearange, columnrange, etc.)
                         'modules/exporting', // adds Exporting button/menu to chart
-                        //'themes/grid', // applies global 'grid' theme to all charts
+                        'themes/grid', // applies global 'grid' theme to all charts
                         //'highcharts-3d',
                         'modules/drilldown'
                     ]
@@ -232,7 +232,7 @@ echo GridView::widget([
                                         },
                                         series: [
                                         {
-                                                    name: 'คน',
+                                                    name: 'ประชากร',
                                                     colorByPoint: true,
                                                     data:$main_level
                                         }

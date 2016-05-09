@@ -60,10 +60,9 @@ class ColoeiController extends Controller
                         ORDER BY o.off_id";
                 try {
                     $rawData = \Yii::$app->db->createCommand($sql)->queryAll();
-                    } 
-                    catch (\yii\db\Exception $e) {
+                } catch (\yii\db\Exception $e) {
                     throw new \yii\web\ConflictHttpException('sql error');
-                    }
+                }
                 $dataProvider = new \yii\data\ArrayDataProvider([
                     //'key' => 'hoscode',
                     'allModels' => $rawData,

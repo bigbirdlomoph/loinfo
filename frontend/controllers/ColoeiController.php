@@ -47,7 +47,7 @@ class ColoeiController extends Controller
                 //$sql = "SELECT villid AS CODE, villname AS NAME
                 //        FROM co_village_loei 
                 //        WHERE distid = '$dist_id' AND subdistid ='$subdist_id'";
-                
+                // เงื่อนไขที่ 1
                 $sql = "SELECT o.off_id AS CODE, o.off_name AS NAME, o.subdistid, 
                         COUNT(DISTINCT v.villid)AS VILLID, 
                         GROUP_CONCAT(v.villname)AS VILLNAME
@@ -78,11 +78,11 @@ class ColoeiController extends Controller
                     'office' => $office_id
                 ]);
                 
-            }else{
+            }else if ($subdist_id != null) {
                 //$sql = "SELECT off_id AS CODE, off_name AS NAME
                 //        FROM co_office 
                 //        WHERE distid = '$dist_id'";
-                // ถ้าเลือกแต่ อำเภอ อย่างเดียว
+                // เงื่อนไขที่ 2
                 $sql = "SELECT o.off_id AS CODE, o.off_name AS NAME, o.subdistid, 
                         COUNT(DISTINCT v.villid)AS VILLID, 
                         GROUP_CONCAT(v.villname)AS VILLNAME
@@ -114,6 +114,41 @@ class ColoeiController extends Controller
                     'office' => $office_id
                 ]);
             }
+            else {
+                $sql = "SELECT o.off_id AS CODE, o.off_name AS NAME, o.subdistid, 
+                        COUNT(DISTINCT v.villid)AS VILLID, 
+                        GROUP_CONCAT(v.villname)AS VILLNAME
+                        FROM co_office o
+                        LEFT JOIN co_village_loei v ON v.subdistid = o.subdistid 
+                        AND v.subdistid = o.subdistid
+                        AND v.hospcode = o.off_id 
+                        WHERE o.distid = '$dist_id'  AND o.off_type NOT IN(00,10,12,20) 
+                        GROUP BY o.off_id
+                        ORDER BY o.off_id";
+                //$subdistid = Yii::$app->request->post('subdistid'); //ส่งค่าตัวแปร distid ในแบบ POST ไปที่หน้า taminfo
+                //$off_name = Yii::$app->request->post('NAME');  //ส่งค่าตัวแปร distname ในแบบ POST  ไปที่หน้า taminfo
+                
+                try {
+                    $rawData = \Yii::$app->db->createCommand($sql)->queryAll();
+                } catch (\yii\db\Exception $e) {
+                    throw new \yii\web\ConflictHttpException('sql error');
+                }
+                $dataProvider = new \yii\data\ArrayDataProvider([
+                    'allModels' => $rawData,
+                    'pagination' => array('pageSize' => 20),
+                ]);
+
+                return $this->render('index', [
+                    'dataProvider' => $dataProvider,
+                    'model' => $model,
+                    'distname' => $dist_id,
+                    'subdist' => $subdist_id,
+                    'office' => $office_id
+                ]);
+                
+                
+            }
+            
         }else{
             return $this->render('index', [
                 'model' => $model,

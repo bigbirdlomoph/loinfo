@@ -31,8 +31,93 @@ $this->params['breadcrumbs'][] = '';
 
 <div class="site-index">
 
+    <div class="body-content">
+        <div class="col-md-12">
+            <div style="display: none">
+                <?php
+                echo Highcharts::widget([
+                    'scripts' => [
+                        'highcharts-more', // enables supplementary chart types (gauge, arearange, columnrange, etc.)
+                        'modules/exporting', // adds Exporting button/menu to chart
+                        'themes/grid', // applies global 'grid' theme to all charts
+                        //'highcharts-3d',
+                        'modules/drilldown'
+                    ]
+                ]);
+                ?>
+            </div>
+            <div id="colum">
+            </div>
 
-<?php
+            <?php
+            $this->registerJs("$(function () {     
+                                    $('#colum').highcharts({
+                                        chart: {
+                                            type: 'column',
+                                            margin: 75,
+                                            options3d: {   
+                                            enabled: true,
+                                            alpha: 10,
+                                            beta: 15,
+                                            viewDistance: 25,
+                                            depth: 70
+                                            }
+                                        },
+                                        title: {
+                                            text: 'จำนวนประชากรแยกรายอำเภอ'
+                                        },
+                                        plotOptions: {
+                                            pie: {
+                                                allowPointSelect: true,
+                                                cursor: 'pointer',
+                                                depth: 35,
+                                                dataLabels: {
+                                                    enabled: true,
+                                                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
+                                                    style: {
+                                                    color:'black'                     
+                                                    },
+                                                    connectorColor: 'silver'
+                                                }
+                                            }
+                                        },
+                                        xAxis: {
+                                            type: 'category'
+                                        },
+                                        yAxis: {
+                                            title: {
+                                                text: '<b>อำเภอ</b>'
+                                            },
+                                        },
+                                        legend: {
+                                            enabled: true
+                                        },
+                                        plotOptions: {
+                                            series: {
+                                                borderWidth: 0,
+                                                depth : 40,
+                                                dataLabels: {
+                                                    enabled: true
+                                                }
+                                            }
+                                        },
+                                        series: [
+                                        {
+                                                    name: 'ประชากร',
+                                                    colorByPoint: true,
+                                                    data:$main_level
+                                        }
+                                                ],
+                                    });
+                                });");
+            ?>   
+        </div>
+    </div>
+    <div>
+          .
+    </div>
+    
+        <?php
 if (isset($dataProvider))
     $dev = \yii\helpers\Html::a('กัมปนาท  บุตรจันทร์ นวก.คอมพิวเตอร์ สสจ.เลย','http://bigbird1983.blogspot.com',['target' => '_blank']);
 
@@ -159,89 +244,6 @@ echo GridView::widget([
     ]
 ]);
 ?>
-
-    <div class="body-content">
-        <div class="col-md-12">
-            <div style="display: none">
-                <?php
-                echo Highcharts::widget([
-                    'scripts' => [
-                        'highcharts-more', // enables supplementary chart types (gauge, arearange, columnrange, etc.)
-                        'modules/exporting', // adds Exporting button/menu to chart
-                        'themes/grid', // applies global 'grid' theme to all charts
-                        //'highcharts-3d',
-                        'modules/drilldown'
-                    ]
-                ]);
-                ?>
-            </div>
-            <div id="colum">
-            </div>
-
-            <?php
-            $this->registerJs("$(function () {     
-                                    $('#colum').highcharts({
-                                        chart: {
-                                            type: 'column',
-                                            margin: 75,
-                                            options3d: {   
-                                            enabled: true,
-                                            alpha: 10,
-                                            beta: 15,
-                                            viewDistance: 25,
-                                            depth: 70
-                                            }
-                                        },
-                                        title: {
-                                            text: 'จำนวนประชากรแยกรายอำเภอ'
-                                        },
-                                        plotOptions: {
-                                            pie: {
-                                                allowPointSelect: true,
-                                                cursor: 'pointer',
-                                                depth: 35,
-                                                dataLabels: {
-                                                    enabled: true,
-                                                    format: '<b>{point.name}</b>: {point.percentage:.1f} %',
-                                                    style: {
-                                                    color:'black'                     
-                                                    },
-                                                    connectorColor: 'silver'
-                                                }
-                                            }
-                                        },
-                                        xAxis: {
-                                            type: 'category'
-                                        },
-                                        yAxis: {
-                                            title: {
-                                                text: '<b>อำเภอ</b>'
-                                            },
-                                        },
-                                        legend: {
-                                            enabled: true
-                                        },
-                                        plotOptions: {
-                                            series: {
-                                                borderWidth: 0,
-                                                depth : 40,
-                                                dataLabels: {
-                                                    enabled: true
-                                                }
-                                            }
-                                        },
-                                        series: [
-                                        {
-                                                    name: 'ประชากร',
-                                                    colorByPoint: true,
-                                                    data:$main_level
-                                        }
-                                                ],
-                                    });
-                                });");
-            ?>   
-        </div>
-    </div>
 
     <div class="body-content">
 

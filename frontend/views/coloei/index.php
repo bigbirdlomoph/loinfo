@@ -78,7 +78,7 @@ $this->title = "ค้นหาหน่วยบริการในจัง�
             if (isset($dataProvider))
                 echo DataTables::widget([
                     'dataProvider' => $dataProvider,
-                    //'formatter' => ['class' => 'yii\i18n\Formatter', 'nullDisplay' => '0'],
+                    'formatter' => ['class' => 'yii\i18n\Formatter', 'nullDisplay' => '0'],
                     //'dataProvider' => $dataProvider,
                     //'responsive' => TRUE,
                     //'hover' => true,
@@ -92,15 +92,15 @@ $this->title = "ค้นหาหน่วยบริการในจัง�
                             'headerOptions' => ['class' => 'text-center'],
                             'contentOptions' => ['class' => 'text-center'],
                             'attribute' => 'CODE',
-                            'header' => 'รหัส.',
-                            'headerOptions' => ['width' => '100']
+                            'header' => 'รหัสสถานบริการ.',
+                            'headerOptions' => ['width' => '200']
                         ],
                         
                         [
                             'headerOptions' => ['class' => 'text-center'],
                             'contentOptions' => ['class' => 'text-left'],
                             'attribute' => 'NAME',
-                            'header' => 'ชื่อสถานบริการ / หมู่บ้าน',
+                            'header' => 'ชื่อสถานบริการ.',
                             //'headerOptions' => ['width' => '300']
                             'format' => 'raw',
                             'value' => function($model) {

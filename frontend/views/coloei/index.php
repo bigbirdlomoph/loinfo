@@ -56,8 +56,8 @@ $this->title = "ค้นหาหน่วยบริการในจัง�
                 'loadingText' => 'กำลังโหลดข้อมูล',
             ]
         ]); ?>
-        </div>
-
+        </div> 
+        
         <div class="form-group">
             <?php /* = Html::submitButton($model->isNewRecord ? 'Process' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) */ ?>
             <button type="submit" class="btn btn-warning">ค้นหา</button>
@@ -117,6 +117,14 @@ $this->title = "ค้นหาหน่วยบริการในจัง�
                             'contentOptions' => ['class' => 'text-center'],
                             'attribute' => 'VILLID',
                             'header' => 'จำนวนหมู่บ้านรับผิดชอบของสถานบริการ',
+                            //'headerOptions' => ['width' => '300']
+                        ],
+                        
+                        [
+                            'headerOptions' => ['class' => 'text-center'],
+                            'contentOptions' => ['class' => 'text-center'],
+                            'attribute' => 'VILLNAME',
+                            'header' => 'หมู่บ้าน',
                             //'headerOptions' => ['width' => '300']
                         ]
                     ],

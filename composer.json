@@ -27,7 +27,8 @@
         "yiisoft/yii2-imagine": "~2.0.0",
         "yurkinx/yii2-image": "dev-master",
         "2amigos/yii2-google-maps-library": "*",
-        "miloschuman/yii2-highcharts-widget": "^4.2"
+        "miloschuman/yii2-highcharts-widget": "^4.2",
+        "phpoffice/phpexcel": "dev-develop"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

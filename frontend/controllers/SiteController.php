@@ -71,6 +71,8 @@ class SiteController extends Controller
      *
      * @return mixed
      */
+    
+    //ตารางแสดงสารสนเทศสาสุขจังหวัดเลย
     public function actionIndex()
     {
         //return $this->render('index');
@@ -153,25 +155,36 @@ class SiteController extends Controller
     }
     
     public function GraphPerson(){ 
-        $sql_level = "SELECT h.DISTNAME, h.PERSON FROM health_info_lomoph h LIMIT 14"; 
+        $sql_level = "SELECT h.distname, h.pperson, h.distid FROM pop_ampur_loei h"; 
         //เก็บผลการ query
         $rawData_level = Yii::$app->db->createCommand($sql_level)->queryAll();
-        
         $main_data_level =[];
         foreach ($rawData_level as $data_level) {
             $main_data_level[] =[
-                'name' => $data_level['DISTNAME'],
-                'y' => $data_level['PERSON']* 1,
-                'z' => $data_level['PERSON'],
-
-            ];
+                'name' => $data_level['distname'],
+                'y' => $data_level['pperson']* 1,
+                'z' => $data_level['pperson'],
+                'drilldown' => $data_level['distid']
+                ];
         }
         $main_level = json_encode($main_data_level);
-
+        
         return [$main_level,$main_data_level];
     }
 
+    //Drilldown Chart
+    public function actionChartpop(){
+        return $this->render('chartpop');
+    }
     
+    public function actionChartpopsub(){
+        return $this->render('chartpopsub');
+    }
+    
+    public function actionChartpopampur(){
+        return $this->render('chartpopampur');
+    }
+
     /**
      * Logs in a user.
      *

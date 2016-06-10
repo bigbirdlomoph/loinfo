@@ -30,10 +30,17 @@ return [
         ],
         
         'urlManager' => [
-            'enablePrettyUrl' => true,
+            'enablePrettyUrl' => FALSE,
             'showScriptName' => TRUE,
             'rules' => [
             ],
+        ],
+        'urlManager' => [
+            'class' => 'yii\web\UrlManager',
+            // Disable index.php
+            'showScriptName' => false,
+            // Disable r= routes
+            'enablePrettyUrl' => false,
         ],
         
         'view' => [ 

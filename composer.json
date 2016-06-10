@@ -28,7 +28,8 @@
         "yurkinx/yii2-image": "dev-master",
         "2amigos/yii2-google-maps-library": "*",
         "miloschuman/yii2-highcharts-widget": "^4.2",
-        "phpoffice/phpexcel": "dev-develop"
+        "phpoffice/phpexcel": "dev-develop",
+        "kartik-v/yii2-detail-view": "*"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",

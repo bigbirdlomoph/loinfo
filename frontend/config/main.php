@@ -42,6 +42,9 @@ return [
             // Disable r= routes
             'enablePrettyUrl' => false,
         ],
+        'booster' => [
+            'class' => 'extensions.booster.components.Bootster',
+        ],
         
         'view' => [ 
             'theme' => [ 

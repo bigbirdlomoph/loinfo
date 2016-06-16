@@ -1,0 +1,8 @@
+@font-face {
+    font-family: 'ThaiSansNeueSemiBold';
+    src: url('thaisansneue-semibold.eot');
+    src: url('thaisansneue-semibold.eot') format('embedded-opentype'),
+         url('thaisansneue-semibold.woff') format('woff'),
+         url('thaisansneue-semibold.ttf') format('truetype'),
+         url('thaisansneue-semibold.svg#ThaiSansNeueSemiBold') format('svg');
+}

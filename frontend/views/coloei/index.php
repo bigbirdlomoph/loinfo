@@ -21,7 +21,7 @@ $this->title = "ค้นหาหน่วยบริการในจัง�
 
         <?php $form = ActiveForm::begin(); ?>
         
-        <div class="col-xs-6 col-sm-4 col-md-4">
+        <div class="col-xs-6 col-sm-3 col-md-3">
         <?= $form->field($model, 'distname')->dropdownList(
             ArrayHelper::map(CoDistrict::find()->all(),
                 'distid',
@@ -32,7 +32,7 @@ $this->title = "ค้นหาหน่วยบริการในจัง�
             ]); ?>
         </div>    
         
-        <div class="col-xs-6 col-sm-4 col-md-4">
+        <div class="col-xs-6 col-sm-3 col-md-3">
         <?= $form->field($model, 'subdist')->widget(DepDrop::classname(), [
             'options' => ['id' => 'subdist'],
             //'data' => $subdist,
@@ -45,7 +45,7 @@ $this->title = "ค้นหาหน่วยบริการในจัง�
         ]); ?>
         </div>
         
-        <div class="col-xs-6 col-sm-4 col-md-4">
+        <div class="col-xs-6 col-sm-3 col-md-3">
         <?= $form->field($model, 'office')->widget(DepDrop::classname(), [
             'options' => ['id' => 'office'],
             //'data' => $office,
@@ -58,14 +58,15 @@ $this->title = "ค้นหาหน่วยบริการในจัง�
         ]); ?>
         </div> 
         
-        <div class="form-group">
+        <div class="col-xs-6 col-sm-3 col-md-3">
+        <div class="form-group" style="margin-top : 25px;">
             <?php /* = Html::submitButton($model->isNewRecord ? 'Process' : 'Update', ['class' => $model->isNewRecord ? 'btn btn-success' : 'btn btn-primary']) */ ?>
             <button type="submit" class="btn btn-warning">ค้นหา</button>
         </div>
 
         <?php ActiveForm::end(); ?>
-
-    </div>
+        </div>    
+        </div>
 
 <?php if (isset($dataProvider)) { 
     

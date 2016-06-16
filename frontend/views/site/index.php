@@ -5,12 +5,14 @@ use yii\helpers\Html;
 use yii\imagine\Image;
 use miloschuman\highcharts\Highcharts;
 
-$this->title = 'สารสนเทศด้านสาธารณสุขจังหวัดเลย';
+$this->title = '';
 $this->params['breadcrumbs'][] = ''; 
 ?>
-
+<div class="title tssb f26p" style="margin-bottom: 10px">
+สารสนเทศด้านสาธาณสุข สำนักงานสาธารณสุขจังหวัดเลย
+</div>
 <!--<div class="col-md-12 col-xs-12"> <?php echo Html::img('@web/img/logo_MOPH150.png'); ?> </div>-->
-<div class="site-index">
+<div class="site-index tssb f18p">
     <div style="display: none">
         <?php
             echo Highcharts::widget([
@@ -69,12 +71,33 @@ $this->params['breadcrumbs'][] = '';
         $this->registerJs("$(function () {
                 // Create the chart
                 $('#chartpop').highcharts({
-            chart: { type: 'column' },
-            title: { text: 'แผนภูมิประชากร แยกรายหน่วยบริการ (โรงพยาบาล)' },
-            xAxis: { type: 'category' },
-            yAxis: {
-                title: {  text: 'คน'  }
+            chart: { type: 'column' ,
+                    borderWidth: 0,
+                    borderRadius: 0,
+                    style : {
+                        fontFamily: 'Conv_ThaiSansNeue-SemiBold'
+                    }
                 },
+            title: { text: 'แผนภูมิประชากรในเขตรับผิดชอบ แยกรายโรงพยาบาล',
+                     style : {
+                                fontFamily : 'Conv_ThaiSansNeue-Bold'
+                        }
+                    },
+            
+            xAxis: { type: 'category',
+                     style : {
+                                fontFamily : 'Conv_ThaiSansNeue-Bold'
+                        }
+                    },
+            
+            yAxis: {
+                title: {  text: 'คน',
+                          style : {
+                                fontFamily : 'Conv_ThaiSansNeue-Bold'
+                          }
+                }
+            },
+            
             legend: { enabled: true },
             
             plotOptions: {
@@ -82,7 +105,10 @@ $this->params['breadcrumbs'][] = '';
                     borderWidth: 0,
                     dataLabels: {
                         enabled: true
-                    }
+                    },
+                    style : {
+                                fontFamily : 'Conv_ThaiSansNeue-Bold'
+                          }
                 }
             },
             series: [{
@@ -117,7 +143,7 @@ $this->params['breadcrumbs'][] = '';
         
     <!--<div><?php echo "<br>";?></div>-->
     
-    <div class="col-md-6 col-xs-12">
+    <div class="col-md-12 col-xs-12">
         <div id="chartpopampur" style="margin-top : 10px;">
         
             <?php
@@ -159,22 +185,33 @@ $this->params['breadcrumbs'][] = '';
                 // Create the chart
                 $('#chartpopampur').highcharts({
             chart: {
-                type : 'pie',
+                type : 'column',
+                borderWidth: 0,
+                borderRadius: 0,
                 options3d: {
-                enabled: true,
-                alpha: 45,
-                beta: 0
+                            enabled: true,
+                            alpha: 45,
+                            beta: 0
             }
             },
             title: {
-                text: 'แผนภูมิประชากรแยกรายอำเภอ...'
+                text: 'แผนภูมิประชากรแยกรายอำเภอ...',
+                style : {
+                                fontFamily : 'Conv_ThaiSansNeue-Bold'
+                        }
             },
             xAxis: {
-                type: 'category'
+                type: 'category',
+                style : {
+                                fontFamily : 'Conv_ThaiSansNeue-Bold'
+                        }
             },
             yAxis: {
                 title: {
-                    text: 'คน'
+                    text: 'คน',
+                    style : {
+                                fontFamily : 'Conv_ThaiSansNeue-Bold'
+                        }
                 }
             },
                
@@ -214,7 +251,6 @@ $this->params['breadcrumbs'][] = '';
         
             <?php
             if (isset($dataProvider))
-                $dev = \yii\helpers\Html::a('กัมปนาท  บุตรจันทร์ นวก.คอมพิวเตอร์ สสจ.เลย', 'http://bigbird1983.blogspot.com', ['target' => '_blank']);
 
             $distid = Yii::$app->request->post('distid');
             
@@ -222,34 +258,34 @@ $this->params['breadcrumbs'][] = '';
                 'dataProvider' => $dataProvider,
                 //'responsive' => true,
                 'hover' => TRUE,
-                'floatHeader' => true,
+                //'floatHeader' => true,
                 'panel' => [
-                    'heading' => '<h3 class="panel-title"><i class="glyphicon glyphicon-plus-sign"></i> Loei Public Health Office</h3>',
-                    'before' => 'จำนวนประชากรคิดตาม typearea 1,3 ของ HDC เป็นประชากรโดยประมาณ',
-                    'type' => \kartik\grid\GridView::TYPE_SUCCESS,
+                    //'heading' => '<h3 class="panel-title"><i class="glyphicon glyphicon-plus-sign"></i> Loei Public Health Office</h3>',
+                    //'before' => 'จำนวนประชากรคิดตาม typearea 1,3 ของ HDC เป็นประชากรโดยประมาณ',
+                    //'type' => \kartik\grid\GridView::TYPE_SUCCESS,
                     'after' => 'ประมวลผล ณ ' . date('Y-m-d')
                 ],
                 'columns' => [
-                    [
+                    /*[
                         'headerOptions' => ['class' => 'text-center'],
                         'contentOptions' => ['class' => 'text-center'],
                         'options' => ['style' => 'width:20px;'],
                         'class' => 'yii\grid\SerialColumn',
                         'header' => 'ลำดับที่'
-                    ],
+                    ],*/
                     [
                         'headerOptions' => ['class' => 'text-center'],
-                        'contentOptions' => ['class' => 'text-left'],
+                        'contentOptions' => ['class' => 'text-center'],
                         'options' => ['style' => 'width:30px;'],
                         'attribute' => 'DISTNAME',
                         'header' => 'อำเภอ',
                         'format' => 'raw',
                         'value' => function($model) {
-                    $distid = $model['DISTID']; // ประกาศรับค่าตัวแปรจาก Controller
-                    $distname = $model['DISTNAME']; // ประกาศรับค่าตัวแปรจาก Controller
-                    return Html::a(Html::encode($distname), ['/site/taminfo', 'DISTID' => $distid]); //กำหนดว่าเราต้องการส่งค่าตัวแปร POST ไปที่หน้าไหน
-                    return empty($model['DISTNAME']) ? '-' : $model['DISTNAME'];
-                }
+                            $distid = $model['DISTID']; // ประกาศรับค่าตัวแปรจาก Controller
+                            $distname = $model['DISTNAME']; // ประกาศรับค่าตัวแปรจาก Controller
+                            return Html::a(Html::encode($distname), ['/site/taminfo', 'DISTID' => $distid]); //กำหนดว่าเราต้องการส่งค่าตัวแปร POST ไปที่หน้าไหน
+                            return empty($model['DISTNAME']) ? '-' : $model['DISTNAME'];
+                        }
                     ],
                     [
                         'headerOptions' => ['class' => 'text-center'],
@@ -258,8 +294,8 @@ $this->params['breadcrumbs'][] = '';
                         'attribute' => 'TAMBON',
                         'header' => 'ตำบล',
                         'value' => function($model) {
-                    return empty($model['TAMBON']) ? '-' : $model['TAMBON'];
-                }
+                            return empty($model['TAMBON']) ? '-' : $model['TAMBON'];
+                        }
                     ],
                     [
                         'headerOptions' => ['class' => 'text-center'],
@@ -268,8 +304,8 @@ $this->params['breadcrumbs'][] = '';
                         'attribute' => 'COMMUNITY',
                         'header' => 'ชุมชน',
                         'value' => function($model) {
-                    return empty($model['COMMUNITY']) ? '-' : $model['COMMUNITY'];
-                }
+                            return empty($model['COMMUNITY']) ? '-' : $model['COMMUNITY'];
+                        }
                     ],
                     [
                         'headerOptions' => ['class' => 'text-center'],
@@ -278,8 +314,8 @@ $this->params['breadcrumbs'][] = '';
                         'attribute' => 'VILLAGE',
                         'header' => 'หมู่บ้าน',
                         'value' => function($model) {
-                    return empty($model['VILLAGE']) ? '-' : $model['VILLAGE'];
-                }
+                            return empty($model['VILLAGE']) ? '-' : $model['VILLAGE'];
+                        }
                     ],
                     [
                         'headerOptions' => ['class' => 'text-center'],
@@ -288,8 +324,8 @@ $this->params['breadcrumbs'][] = '';
                         'attribute' => 'H_HOSPITAL',
                         'header' => 'รพท.',
                         'value' => function($model) {
-                    return empty($model['H_HOSPITAL']) ? '-' : $model['H_HOSPITAL'];
-                }
+                            return empty($model['H_HOSPITAL']) ? '-' : $model['H_HOSPITAL'];
+                        }
                     ],
                     [
                         'headerOptions' => ['class' => 'text-center'],
@@ -298,8 +334,8 @@ $this->params['breadcrumbs'][] = '';
                         'attribute' => 'HOSPITAL',
                         'header' => 'รพช.',
                         'value' => function($model) {
-                    return empty($model['HOSPITAL']) ? '-' : $model['HOSPITAL'];
-                }
+                            return empty($model['HOSPITAL']) ? '-' : $model['HOSPITAL'];
+                        }
                     ],
                     [
                         'headerOptions' => ['class' => 'text-center'],
@@ -308,8 +344,8 @@ $this->params['breadcrumbs'][] = '';
                         'attribute' => 'SUB_HOSPITAL',
                         'header' => 'รพ.สต.',
                         'value' => function($model) {
-                    return empty($model['SUB_HOSPITAL']) ? '-' : $model['SUB_HOSPITAL'];
-                }
+                            return empty($model['SUB_HOSPITAL']) ? '-' : $model['SUB_HOSPITAL'];
+                        }
                     ],
                     [
                         'headerOptions' => ['class' => 'text-center'],
@@ -318,8 +354,8 @@ $this->params['breadcrumbs'][] = '';
                         'attribute' => 'NON_NHSO',
                         'header' => 'รพ. นอกสังกัด สป.',
                         'value' => function($model) {
-                    return empty($model['NON_NHSO']) ? '-' : $model['NON_NHSO'];
-                }
+                            return empty($model['NON_NHSO']) ? '-' : $model['NON_NHSO'];
+                        }
                     ],
                 ]
             ]);
@@ -330,7 +366,7 @@ $this->params['breadcrumbs'][] = '';
     <div class="body-content">
 
         <div class="row">
-            
+          
         </div>
 
     </div>

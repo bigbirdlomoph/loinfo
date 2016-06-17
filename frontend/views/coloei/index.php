@@ -13,11 +13,14 @@ use frontend\models\CoDistrict; //เรียกใช้งาน model CoDist
 /* @var $model frontend\models\Coloei */
 /* @var $form yii\widgets\ActiveForm */
 
-$this->title = "ค้นหาหน่วยบริการในจังหวัดเลย";
+$this->title = "";
 //echo 'dddd'.$office_id;
 ?>
+<div class="title tssb f26p" style="margin-bottom: 10px">
+ค้นหาหน่วยบริการในจังหวัดเลย
+</div>
 
-    <div class="coloei-form">
+    <div class="coloei-form tssb f18p">
 
         <?php $form = ActiveForm::begin(); ?>
         
@@ -75,7 +78,7 @@ $this->title = "ค้นหาหน่วยบริการในจัง�
     ?>
  
     <div class="panel panel-default">
-        <div class="panel-body">
+        <div class="panel-body tssb f16p">
             <?php
             if (isset($dataProvider))
                 echo DataTables::widget([
@@ -95,12 +98,13 @@ $this->title = "ค้นหาหน่วยบริการในจัง�
                             'contentOptions' => ['class' => 'text-center'],
                             'attribute' => 'CODE',
                             'header' => 'รหัสสถานบริการ.',
-                            'headerOptions' => ['width' => '200']
+                            'headerOptions' => ['width' => '90']
                         ],
                         
                         [
                             'headerOptions' => ['class' => 'text-center'],
                             'contentOptions' => ['class' => 'text-left'],
+                            'headerOptions' => ['width' => '90'],
                             'attribute' => 'NAME',
                             'header' => 'ชื่อสถานบริการ.',
                             //'headerOptions' => ['width' => '300']
@@ -123,7 +127,7 @@ $this->title = "ค้นหาหน่วยบริการในจัง�
                         
                         [
                             'headerOptions' => ['class' => 'text-center'],
-                            'contentOptions' => ['class' => 'text-center'],
+                            'contentOptions' => ['class' => 'text-left'],
                             'attribute' => 'VILLNAME',
                             'header' => 'หมู่บ้าน',
                             //'headerOptions' => ['width' => '300']

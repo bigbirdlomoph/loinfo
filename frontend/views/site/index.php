@@ -74,9 +74,7 @@ $this->params['breadcrumbs'][] = '';
             chart: { type: 'column' ,
                     borderWidth: 0,
                     borderRadius: 0,
-                    style : {
-                        fontFamily: 'Conv_ThaiSansNeue-SemiBold'
-                    }
+                    
                 },
             title: { text: 'แผนภูมิประชากรในเขตรับผิดชอบ แยกรายโรงพยาบาล',
                      style : {
@@ -266,13 +264,13 @@ $this->params['breadcrumbs'][] = '';
                     'after' => 'ประมวลผล ณ ' . date('Y-m-d')
                 ],
                 'columns' => [
-                    /*[
+                    [
                         'headerOptions' => ['class' => 'text-center'],
                         'contentOptions' => ['class' => 'text-center'],
                         'options' => ['style' => 'width:20px;'],
                         'class' => 'yii\grid\SerialColumn',
                         'header' => 'ลำดับที่'
-                    ],*/
+                    ],
                     [
                         'headerOptions' => ['class' => 'text-center'],
                         'contentOptions' => ['class' => 'text-center'],
